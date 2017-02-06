@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<extension key="no.maf.generic" type="module">
+  <file>generic</file>
+  <name>MAF Norge Generic Extension</name>
+  <description>MAF Norge Generic Extension with Config Items and General Functionality</description>
+  <license>AGPL-3.0</license>
+  <maintainer>
+    <author>Erik Hommel (CiviCooP)</author>
+    <email>erik.hommel@civicoop.org</email>
+  </maintainer>
+  <urls>
+    <url desc="Main Extension Page">https://github.com/CiviCooP/no.maf.generic</url>
+    <url desc="Documentation">https://civicoop.plan.io/projects/maf-norge-civicrm-support-2016/wiki/Nomafgeneric</url>
+    <url desc="Support">http://civicoop.org/</url>
+    <url desc="Licensing">http://www.gnu.org/licenses/agpl-3.0.html</url>
+  </urls>
+  <releaseDate>2017-02-06</releaseDate>
+  <version>1.0</version>
+  <develStage>alpha</develStage>
+  <compatibility>
+    <ver>4.7</ver>
+  </compatibility>
+  <comments>Extension is being developed</comments>
+  <civix>
+    <namespace>CRM/Generic</namespace>
+  </civix>
+</extension>
