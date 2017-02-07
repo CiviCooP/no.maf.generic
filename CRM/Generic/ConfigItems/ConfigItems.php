@@ -18,7 +18,9 @@ class CRM_Generic_ConfigItems_ConfigItems {
    * CRM_Generic_ConfigItems_ConfigItems constructor.
    */
   function __construct() {
-    $resourcesPath = Civi::paths()->getVariable('civicrm.files', 'path').'ext/no.maf.generic/CRM/Generic/ConfigItems/resources/';
+    // Get the directory of the extension based on the name.
+    $container = CRM_Extension_System::singleton()->getFullContainer();
+    $resourcesPath = $container->getPath('no.maf.generic').'/CRM/Generic/ConfigItems/resources/';
     if (!is_dir($resourcesPath) || !file_exists($resourcesPath)) {
       throw new Exception(ts('Could not find the folder '.$resourcesPath
         .' which is required for extension no.maf.generic in '.__METHOD__
@@ -122,7 +124,8 @@ class CRM_Generic_ConfigItems_ConfigItems {
    */
   private static function uninstallCustomData() {
     // read all json files from custom_data dir
-    $customDataPath = Civi::paths()->getVariable('civicrm.files', 'path').'ext/no.maf.generic/CRM/Generic/ConfigItems/resources/custom_data';
+    $container = CRM_Extension_System::singleton()->getFullContainer();
+    $customDataPath = $container->getPath('no.maf.generic').'/CRM/Generic/ConfigItems/resources/custom_data';
     if (file_exists($customDataPath) && is_dir($customDataPath)) {
       // get all json files from dir
       $jsonFiles = glob($customDataPath.DIRECTORY_SEPARATOR. "*.json");
@@ -142,7 +145,8 @@ class CRM_Generic_ConfigItems_ConfigItems {
    */
   private static function enableCustomData() {
     // read all json files from custom_data dir
-    $customDataPath = Civi::paths()->getVariable('civicrm.files', 'path').'ext/no.maf.generic/CRM/Generic/ConfigItems/resources/custom_data';
+    $container = CRM_Extension_System::singleton()->getFullContainer();
+    $customDataPath = $container->getPath('no.maf.generic').'/CRM/Generic/ConfigItems/resources/custom_data';
     if (file_exists($customDataPath) && is_dir($customDataPath)) {
       // get all json files from dir
       $jsonFiles = glob($customDataPath.DIRECTORY_SEPARATOR. "*.json");
@@ -162,7 +166,8 @@ class CRM_Generic_ConfigItems_ConfigItems {
    */
   private static function disableCustomData() {
     // read all json files from custom_data dir
-    $customDataPath = Civi::paths()->getVariable('civicrm.files', 'path').'ext/no.maf.generic/CRM/Generic/ConfigItems/resources/custom_data';
+    $container = CRM_Extension_System::singleton()->getFullContainer();
+    $customDataPath = $container->getPath('no.maf.generic').'/CRM/Generic/ConfigItems/resources/custom_data';
     if (file_exists($customDataPath) && is_dir($customDataPath)) {
       // get all json files from dir
       $jsonFiles = glob($customDataPath.DIRECTORY_SEPARATOR. "*.json");
@@ -182,7 +187,8 @@ class CRM_Generic_ConfigItems_ConfigItems {
    */
   private static function disableOptionGroups() {
     // read all json files from dir
-    $resourcePath = Civi::paths()->getVariable('civicrm.files', 'path').'ext/no.maf.generic/CRM/Generic/ConfigItems/resources/';
+    $container = CRM_Extension_System::singleton()->getFullContainer();
+    $resourcePath = $container->getPath('no.maf.generic').'/CRM/Generic/ConfigItems/resources/';
     $jsonFile = $resourcePath.'option_groups.json';
     if (file_exists($jsonFile)) {
       $optionGroupsJson = file_get_contents($jsonFile);
@@ -199,7 +205,8 @@ class CRM_Generic_ConfigItems_ConfigItems {
    */
   private static function enableOptionGroups() {
     // read all json files from dir
-    $resourcePath = Civi::paths()->getVariable('civicrm.files', 'path').'ext/no.maf.generic/CRM/Generic/ConfigItems/resources/';
+    $container = CRM_Extension_System::singleton()->getFullContainer();
+    $resourcePath = $container->getPath('no.maf.generic').'/CRM/Generic/ConfigItems/resources/';
     $jsonFile = $resourcePath.'option_groups.json';
     if (file_exists($jsonFile)) {
       $optionGroupsJson = file_get_contents($jsonFile);
@@ -216,7 +223,8 @@ class CRM_Generic_ConfigItems_ConfigItems {
    */
   private static function uninstallOptionGroups() {
     // read all json files from dir
-    $resourcePath = Civi::paths()->getVariable('civicrm.files', 'path').'ext/no.maf.generic/CRM/Generic/ConfigItems/resources/';
+    $container = CRM_Extension_System::singleton()->getFullContainer();
+    $resourcePath = $container->getPath('no.maf.generic').'/CRM/Generic/ConfigItems/resources/';
     $jsonFile = $resourcePath.'option_groups.json';
     if (file_exists($jsonFile)) {
       $optionGroupsJson = file_get_contents($jsonFile);
