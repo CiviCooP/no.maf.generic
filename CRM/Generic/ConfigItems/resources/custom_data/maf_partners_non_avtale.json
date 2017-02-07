@@ -1,0 +1,108 @@
+{
+  "maf_partners_non_avtale":{
+    "name":"maf_partners_non_avtale",
+    "title":"MAF Partners Printed Giro and Donor Managed",
+    "extends":"Contact",
+    "style":"Tab with table",
+    "is_multiple":1,
+    "is_active":1,
+    "is_reserved":1,
+    "collapse_display":0,
+    "table_name":"civicrm_value_maf_partners_non_avtale",
+    "fields": {
+      "maf_partners_type": {
+        "name": "maf_partners_type",
+        "label": "Type",
+        "option_group": "maf_partners_type",
+        "data_type": "String",
+        "html_type": "Radio",
+        "is_searchable": 1,
+        "is_view": 0,
+        "is_required":1,
+        "column_name": "maf_partners_type",
+        "weight": -100,
+        "is_active": 1
+      },
+      "maf_partners_start_date": {
+        "name": "maf_partners_start_date",
+        "label": "Start Date",
+        "data_type": "Date",
+        "html_type": "Select Date",
+        "is_searchable": 1,
+        "is_required": 1,
+        "start_date_years":1,
+        "end_date_years":1,
+        "date_format":"dd-mm-yy",
+        "is_view": 0,
+        "column_name": "maf_partners_start_date",
+        "weight": -90,
+        "is_active": 1
+      },
+      "maf_partners_campaign": {
+        "name": "maf_partners_campaign",
+        "label": "Campaign",
+        "option_group": "maf_partners_campaign",
+        "data_type": "String",
+        "html_type": "Autocomplete-Select",
+        "is_searchable": 1,
+        "is_view": 0,
+        "is_required":1,
+        "column_name": "maf_partners_campaign",
+        "weight": -80,
+        "is_active": 1
+      },
+      "maf_partners_amount": {
+        "name": "maf_partners_amount",
+        "label": "Amount in NOK",
+        "data_type": "Money",
+        "html_type": "Text",
+        "is_searchable": 1,
+        "is_view": 0,
+        "is_required":1,
+        "column_name": "maf_partners_amount",
+        "weight": -70,
+        "is_active": 1
+      },
+      "maf_partners_frequency": {
+        "name": "maf_partners_frequency",
+        "label": "Frequency",
+        "option_group": "maf_partners_frequency",
+        "data_type": "String",
+        "html_type": "Select",
+        "is_searchable": 1,
+        "is_view": 0,
+        "is_required":1,
+        "column_name": "maf_partners_frequency",
+        "weight": -60,
+        "is_active": 1
+      },
+      "maf_partners_end_date": {
+        "name": "maf_partners_end_date",
+        "label": "End Date",
+        "data_type": "Date",
+        "html_type": "Select Date",
+        "is_searchable": 1,
+        "is_required": 0,
+        "start_date_years":1,
+        "end_date_years":1,
+        "date_format":"dd-mm-yy",
+        "is_view": 0,
+        "column_name": "maf_partners_end_date",
+        "weight": -50,
+        "is_active": 1
+      },
+      "maf_partners_scanned_contract": {
+        "name": "maf_partners_scanned_contract",
+        "label": "Scanned contract",
+        "data_type": "File",
+        "html_type": "File",
+        "is_searchable": 1,
+        "is_view": 0,
+        "is_required":0,
+        "column_name": "maf_partners_scanned_contract",
+        "weight": -40,
+        "is_active": 1
+      }
+    }
+  }
+}

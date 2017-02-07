@@ -2,6 +2,9 @@
 
 require_once 'generic.civix.php';
 
+function generic_civicrm_post($op, $objectName, $objectId, &$objectRef) {
+  CRM_Generic_Campaign::post($op, $objectName, $objectId, $objectRef);
+}
 /**
  * Implements hook_civicrm_config().
  *
