@@ -1,0 +1,53 @@
+{
+  "maf_avtale_giro":{
+    "name":"maf_avtale_giro",
+    "title":"MAF Avtale Giro",
+    "extends":"ContributionRecur",
+    "style":"Inline",
+    "is_multiple":0,
+    "is_active":1,
+    "is_reserved":1,
+    "collapse_display":0,
+    "table_name":"civicrm_value_maf_avtale_giro",
+    "fields": {
+      "maf_maximum_amount": {
+        "name": "maf_maximum_amount",
+        "label": "Maximum Amount",
+        "data_type": "Money",
+        "html_type": "Text",
+        "is_searchable": 1,
+        "is_search_range":1,
+        "is_view": 0,
+        "is_required":1,
+        "column_name": "maf_maximum_amount",
+        "weight": -100,
+        "is_active": 1
+      },
+      "maf_notification_bank": {
+        "name": "maf_notification_bank",
+        "label": "Notification to Bank?",
+        "data_type": "Boolean",
+        "html_type": "Radio",
+        "default_value":0,
+        "is_searchable": 1,
+        "is_required": 1,
+        "is_view": 0,
+        "column_name": "maf_notification_bank",
+        "weight": -90,
+        "is_active": 1
+      },
+      "maf_kid": {
+        "name": "maf_kid",
+        "label": "KID",
+        "data_type": "String",
+        "html_type": "Text",
+        "is_searchable": 1,
+        "is_view": 1,
+        "is_required":0,
+        "column_name": "maf_kid",
+        "weight": -80,
+        "is_active": 1
+      }
+    }
+  }
+}
