@@ -1,0 +1,50 @@
+{
+  "maf_person":{
+    "name":"maf_person",
+    "title":"MAF Norge Person",
+    "extends":"Individual",
+    "style":"Inline",
+    "is_multiple":0,
+    "is_active":1,
+    "is_reserved":1,
+    "collapse_display":0,
+    "table_name":"civicrm_value_mafperson",
+    "fields": {
+      "personnummer": {
+        "name": "personnummer",
+        "label": "Personnummer",
+        "data_type": "String",
+        "html_type": "Text",
+        "is_required": "0",
+        "is_searchable": "1",
+        "is_search_range": "0",
+        "weight": "4",
+        "is_active": "1",
+        "is_view": "0",
+        "text_length": "25",
+        "note_columns": "60",
+        "note_rows": "4",
+        "column_name": "personnummer",
+        "in_selector": "0"
+      },
+      "primary_contact_for_communication": {
+        "name":"primary_contact_for_communication",
+        "label":"Skal jeg motta post n\u00e5r det sendes til alle?",
+        "data_type":"Boolean",
+        "html_type":"Radio",
+        "default_value":"1",
+        "is_required":"1",
+        "is_searchable":"1",
+        "is_search_range":"0",
+        "weight":"191",
+        "help_post":"Hvis flere kontakter bor p\u00e5 samme adresse, s\u00e5 vil de vanligvis f\u00e5 sms og epost hver for seg. Men noen ganger n\u00e5r vi sender post (spesielt blad), \u00f8nsker vi at kun en kontakt mottar dette. Dersom du velger ja her, s\u00e5 vil denne kontakten motta post. Dersom du velger nei, s\u00e5 vil denne kontakten ikke motta post.",
+        "is_active":"1",
+        "is_view":"0",
+        "text_length":"255",
+        "note_columns":"60",
+        "note_rows":"4",
+        "column_name":"primary_contact_for_communication"
+      }
+    }
+  }
+}

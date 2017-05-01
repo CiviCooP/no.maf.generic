@@ -1,0 +1,85 @@
+{
+  "reservasjonsregisteret": {
+    "name":"reservasjonsregisteret",
+    "title":"Reservasjonsregisteret i Br\u00f8nn\u00f8ysund",
+    "extends":"Contact",
+    "style":"Inline",
+    "collapse_display":"1",
+    "help_pre":"",
+    "help_post":"",
+    "weight":"2",
+    "is_active":"1",
+    "table_name":"civicrm_value_reservasjonsregisteret",
+    "is_multiple":"0",
+    "collapse_adv_display":"1",
+    "is_reserved":"1",
+    "fields": {
+      "reservert_kald_post": {
+        "name":"reservert_kald_post",
+        "label":"Har kontakten reservert seg mot \"kald\" post?",
+        "data_type":"Boolean",
+        "html_type":"Radio",
+        "is_required":"0",
+        "is_searchable":"1",
+        "is_search_range":"0",
+        "weight":"6",
+        "is_active":"1",
+        "is_view":"0",
+        "text_length":"255",
+        "note_columns":"60",
+        "note_rows":"4",
+        "column_name":"reservert_kald_post"
+      },
+      "reservert_kald_telefon": {
+        "name":"reservert_kald_telefon",
+        "label":"Har kontakten reservert seg mot \"kald\" telefon?",
+        "data_type":"Boolean",
+        "html_type":"Radio",
+        "is_required":"0",
+        "is_searchable":"1",
+        "is_search_range":"0",
+        "weight":"9",
+        "is_active":"1",
+        "is_view":"0",
+        "text_length":"255",
+        "note_columns":"60",
+        "note_rows":"4",
+        "column_name":"reservert_kald_telefon"
+      },
+      "reservert_humanit_organisasjoner": {
+        "name":"reservert_humanit_organisasjoner",
+        "label":"Har kontakten reservert seg mot humanit\u00e6re organisasjoner?",
+        "data_type":"Boolean",
+        "html_type":"Radio",
+        "is_required":"0",
+        "is_searchable":"1",
+        "is_search_range":"0",
+        "weight":"11",
+        "is_active":"1",
+        "is_view":"0",
+        "text_length":"255",
+        "note_columns":"60",
+        "note_rows":"4",
+        "column_name":"reservert_humanit_organisasjoner"
+      },
+      "reservert_sist_oppdatert": {
+        "name":"reservert_sist_oppdatert",
+        "label":"N\u00e5r ble denne informasjonen sist oppdatert?",
+        "data_type":"Date",
+        "html_type":"Select Date",
+        "is_required":"0",
+        "is_searchable":"1",
+        "is_search_range":"1",
+        "weight":"15",
+        "is_active":"1",
+        "is_view":"0",
+        "text_length":"255",
+        "date_format":"d MM yy",
+        "note_columns":"60",
+        "note_rows":"4",
+        "column_name":"reservert_sist_oppdatert"
+      }
+    }
+  }
+}
+
