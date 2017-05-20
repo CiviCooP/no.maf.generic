@@ -1,26 +1,4 @@
 {
-  "maf_partners_type":{
-    "name":"maf_partners_type",
-    "title":"MAF Norge Partners Type",
-    "is_active":1,
-    "is_reserved":1,
-    "option_values":{
-      "printed_giro":{
-        "name":"printed_giro",
-        "value":"1",
-        "label":"Printed Giro",
-        "is_active":1,
-        "is_reserved":1
-      },
-      "donor_managed":{
-        "name":"donor_managed",
-        "value":"2",
-        "label":"Fast trekk",
-        "is_active":1,
-        "is_reserved":1
-      }
-    }
-  },
   "maf_partners_frequency":{
     "name":"maf_partners_frequency",
     "title":"MAF Norge Partners Frequency",

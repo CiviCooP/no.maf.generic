@@ -29,6 +29,7 @@ class CRM_Generic_ConfigItems_ConfigItems {
     $this->_resourcesPath = $resourcesPath;
 
     $this->setOptionGroups();
+    $this->setCampaigns();
     // customData as last one because it might need one of the previous ones (option group, relationship types)
     $this->setCustomData();
   }
@@ -103,6 +104,7 @@ class CRM_Generic_ConfigItems_ConfigItems {
   public static function disable() {
     self::disableCustomData();
     self::disableOptionGroups();
+    self::disableCampaigns();
 
   }
 
@@ -112,11 +114,17 @@ class CRM_Generic_ConfigItems_ConfigItems {
   public static function enable() {
     self::enableCustomData();
     self::enableOptionGroups();
+    self::enableCampaigns();
 
   }
+
+  /**
+   * Method to uninstall configuration items
+   */
   public static function uninstall() {
     self::uninstallCustomData();
     self::uninstallOptionGroups();
+    self::uninstallCampaigns();
   }
 
   /**
@@ -178,6 +186,78 @@ class CRM_Generic_ConfigItems_ConfigItems {
           $customGroup = new CRM_Generic_ConfigItems_CustomGroup();
           $customGroup->disable($customGroupName);
         }
+      }
+    }
+  }
+
+  /**
+   * Method to disable campaigns
+   */
+  private static function disableCampaigns() {
+    // read all json files from dir
+    $container = CRM_Extension_System::singleton()->getFullContainer();
+    $resourcePath = $container->getPath('no.maf.generic').'/CRM/Generic/ConfigItems/resources/';
+    $jsonFile = $resourcePath.'campaigns.json';
+    if (file_exists($jsonFile)) {
+      $campaignsJson = file_get_contents($jsonFile);
+      $campaigns = json_decode($campaignsJson, true);
+      foreach ($campaigns as $name => $campaignParams) {
+        $campaign = new CRM_Generic_ConfigItems_Campaign();
+        $campaign->disable($name, $campaignParams['campaign_type_id']);
+      }
+    }
+  }
+
+  /**
+   * Method to create campaigns
+   */
+  private static function setCampaigns() {
+    // read all json files from dir
+    $container = CRM_Extension_System::singleton()->getFullContainer();
+    $resourcePath = $container->getPath('no.maf.generic').'/CRM/Generic/ConfigItems/resources/';
+    $jsonFile = $resourcePath.'campaigns.json';
+    if (file_exists($jsonFile)) {
+      $campaignsJson = file_get_contents($jsonFile);
+      $campaigns = json_decode($campaignsJson, true);
+      foreach ($campaigns as $name => $campaignParams) {
+        $campaign = new CRM_Generic_ConfigItems_Campaign();
+        $campaign->create($campaignParams);
+      }
+    }
+  }
+
+  /**
+   * Method to enable campaigns
+   */
+  private static function enableCampaigns() {
+    // read all json files from dir
+    $container = CRM_Extension_System::singleton()->getFullContainer();
+    $resourcePath = $container->getPath('no.maf.generic').'/CRM/Generic/ConfigItems/resources/';
+    $jsonFile = $resourcePath.'campaigns.json';
+    if (file_exists($jsonFile)) {
+      $campaignsJson = file_get_contents($jsonFile);
+      $campaigns = json_decode($campaignsJson, true);
+      foreach ($campaigns as $name => $campaignParams) {
+        $campaign = new CRM_Generic_ConfigItems_Campaign();
+        $campaign->enable($name, $campaignParams['campaign_type_id']);
+      }
+    }
+  }
+
+  /**
+   * Method to uninstall campaigns
+   */
+  private static function uninstallCampaigns() {
+    // read all json files from dir
+    $container = CRM_Extension_System::singleton()->getFullContainer();
+    $resourcePath = $container->getPath('no.maf.generic').'/CRM/Generic/ConfigItems/resources/';
+    $jsonFile = $resourcePath.'campaigns.json';
+    if (file_exists($jsonFile)) {
+      $campaignsJson = file_get_contents($jsonFile);
+      $campaigns = json_decode($campaignsJson, true);
+      foreach ($campaigns as $name => $campaignParams) {
+        $campaign = new CRM_Generic_ConfigItems_Campaign();
+        $campaign->uninstall($name, $campaignParams['campaign_type_id']);
       }
     }
   }

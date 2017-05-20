@@ -1,7 +1,7 @@
 {
   "maf_partners_non_avtale":{
     "name":"maf_partners_non_avtale",
-    "title":"MAF Partners Printed Giro and Donor Managed",
+    "title":"MAF Partners Printed Giro",
     "extends":"Contact",
     "style":"Tab with table",
     "is_multiple":1,
@@ -10,20 +10,6 @@
     "collapse_display":0,
     "table_name":"civicrm_value_maf_partners_non_avtale",
     "fields": {
-      "maf_partners_type": {
-        "name": "maf_partners_type",
-        "label": "Type",
-        "option_group": "maf_partners_type",
-        "data_type": "String",
-        "html_type": "Radio",
-        "is_searchable": 1,
-        "is_view": 0,
-        "is_required":1,
-        "column_name": "maf_partners_type",
-        "weight": -100,
-        "is_active": 1,
-        "in_selector":1
-      },
       "maf_partners_start_date": {
         "name": "maf_partners_start_date",
         "label": "Start Date",

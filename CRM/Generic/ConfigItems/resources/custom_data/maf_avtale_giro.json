@@ -35,18 +35,6 @@
         "column_name": "maf_notification_bank",
         "weight": -90,
         "is_active": 1
-      },
-      "maf_kid": {
-        "name": "maf_kid",
-        "label": "KID",
-        "data_type": "String",
-        "html_type": "Text",
-        "is_searchable": 1,
-        "is_view": 1,
-        "is_required":0,
-        "column_name": "maf_kid",
-        "weight": -80,
-        "is_active": 1
       }
     }
   }
