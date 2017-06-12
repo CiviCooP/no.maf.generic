@@ -1,0 +1,8 @@
+{
+  "maf_exported_printed_giro":{
+    "name": "maf_exported_printed_giro",
+    "label": "Exported for Printed Giro",
+    "description":"Contact was included on a csv-export for printed giro",
+    "is_active": 1
+  }
+}

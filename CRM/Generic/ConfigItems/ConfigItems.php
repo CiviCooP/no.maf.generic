@@ -30,6 +30,7 @@ class CRM_Generic_ConfigItems_ConfigItems {
 
     $this->setOptionGroups();
     $this->setCampaigns();
+    $this->setActivityTypes();
     // customData as last one because it might need one of the previous ones (option group, relationship types)
     $this->setCustomData();
   }
@@ -65,6 +66,26 @@ class CRM_Generic_ConfigItems_ConfigItems {
     foreach ($optionGroups as $name => $optionGroupParams) {
       $optionGroup = new CRM_Generic_ConfigItems_OptionGroup();
       $optionGroup->create($optionGroupParams);
+    }
+  }
+
+  /**
+   * Method to create activity types
+   *
+   * @throws Exception when resource file not found
+   * @access protected
+   */
+  protected function setActivityTypes() {
+    $jsonFile = $this->_resourcesPath.'activity_types.json';
+    if (!file_exists($jsonFile)) {
+      throw new Exception(ts('Could not load activity_types configuration file for extension,
+      contact your system administrator!'));
+    }
+    $activityTypesJson = file_get_contents($jsonFile);
+    $activityTypes = json_decode($activityTypesJson, true);
+    foreach ($activityTypes as $name => $activityTypeParams) {
+      $activityType = new CRM_Generic_ConfigItems_ActivityType();
+      $activityType->create($activityTypeParams);
     }
   }
 
@@ -105,6 +126,7 @@ class CRM_Generic_ConfigItems_ConfigItems {
     self::disableCustomData();
     self::disableOptionGroups();
     self::disableCampaigns();
+    self::disableActivityTypes();
 
   }
 
@@ -115,6 +137,7 @@ class CRM_Generic_ConfigItems_ConfigItems {
     self::enableCustomData();
     self::enableOptionGroups();
     self::enableCampaigns();
+    self::enableActivityTypes();
 
   }
 
@@ -125,6 +148,7 @@ class CRM_Generic_ConfigItems_ConfigItems {
     self::uninstallCustomData();
     self::uninstallOptionGroups();
     self::uninstallCampaigns();
+    self::uninstallActivityTypes();
   }
 
   /**
@@ -227,6 +251,42 @@ class CRM_Generic_ConfigItems_ConfigItems {
   }
 
   /**
+   * Method to enable activity types
+   */
+  private static function enableActivityTypes() {
+    // read all json files from dir
+    $container = CRM_Extension_System::singleton()->getFullContainer();
+    $resourcePath = $container->getPath('no.maf.generic').'/CRM/Generic/ConfigItems/resources/';
+    $jsonFile = $resourcePath.'activity_types.json';
+    if (file_exists($jsonFile)) {
+      $activityTypesJson = file_get_contents($jsonFile);
+      $activityTypes = json_decode($activityTypesJson, true);
+      foreach ($activityTypes as $name => $activityParams) {
+        $activityType = new CRM_Generic_ConfigItems_ActivityType();
+        $activityType->enable($name);
+      }
+    }
+  }
+
+  /**
+   * Method to disable activity types
+   */
+  private static function disableActivityTypes() {
+    // read all json files from dir
+    $container = CRM_Extension_System::singleton()->getFullContainer();
+    $resourcePath = $container->getPath('no.maf.generic').'/CRM/Generic/ConfigItems/resources/';
+    $jsonFile = $resourcePath.'activity_types.json';
+    if (file_exists($jsonFile)) {
+      $activityTypesJson = file_get_contents($jsonFile);
+      $activityTypes = json_decode($activityTypesJson, true);
+      foreach ($activityTypes as $name => $activityParams) {
+        $activityType = new CRM_Generic_ConfigItems_ActivityType();
+        $activityType->disable($name);
+      }
+    }
+  }
+
+  /**
    * Method to enable campaigns
    */
   private static function enableCampaigns() {
@@ -240,6 +300,24 @@ class CRM_Generic_ConfigItems_ConfigItems {
       foreach ($campaigns as $name => $campaignParams) {
         $campaign = new CRM_Generic_ConfigItems_Campaign();
         $campaign->enable($name, $campaignParams['campaign_type_id']);
+      }
+    }
+  }
+
+  /**
+   * Method to uninstall activity types
+   */
+  private static function uninstallActivityTypes() {
+    // read all json files from dir
+    $container = CRM_Extension_System::singleton()->getFullContainer();
+    $resourcePath = $container->getPath('no.maf.generic').'/CRM/Generic/ConfigItems/resources/';
+    $jsonFile = $resourcePath.'activity_types.json';
+    if (file_exists($jsonFile)) {
+      $activityTypesJson = file_get_contents($jsonFile);
+      $activityTypes = json_decode($activityTypesJson, true);
+      foreach ($activityTypes as $name => $activityTypeParams) {
+        $activityType = new CRM_Generic_ConfigItems_ActivityType();
+        $activityType->uninstall($name);
       }
     }
   }
