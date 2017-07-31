@@ -3,6 +3,36 @@
 require_once 'generic.civix.php';
 
 /**
+ * Implements hook_civicrm_searchTasks().
+ *
+ *@link https://docs.civicrm.org/dev/en/master/hooks/hook_civicrm_searchTasks/
+ */
+function generic_civicrm_searchTasks($objectName, &$tasks) {
+  if ($objectName == 'contact') {
+    CRM_Generic_Contact::searchTasks($objectName, $tasks);
+  }
+}
+
+/**
+ * Implements hook_civicrm_export().
+ *
+ *@link https://docs.civicrm.org/dev/en/master/hooks/hook_civicrm_export/
+ */
+function generic_civicrm_export(&$exportTempTable, &$headerRows, &$sqlColumns, &$exportMode) {
+  CRM_Generic_Export::export($exportTempTable, $headerRows, $sqlColumns, $exportMode);
+}
+
+/**
+ * @param $formName
+ * @param $form
+ */
+function generic_civicrm_buildForm ($formName, &$form) {
+  if ($formName == 'CRM_Export_Form_Select') {
+    CRM_Generic_Export::buildForm($formName, $form);
+  }
+}
+
+/**
  * Implements hook_civicrm_validateForm().
  *
  *@link https://docs.civicrm.org/dev/en/master/hooks/hook_civicrm_validateForm/
@@ -15,6 +45,9 @@ function generic_civicrm_validateForm($formName, &$fields, &$files, &$form, &$er
     case "CRM_Contact_Form_Inline_ContactInfo":
       CRM_Generic_Contact::validateForm($formName, $fields, $form, $errors);
       break;
+    case "CRM_Export_Form_Select":
+      CRM_Generic_Export::validateForm($formName, $fields, $form, $errors);
+      break;
   }
 }
 
@@ -23,10 +56,6 @@ function generic_civicrm_validateForm($formName, &$fields, &$files, &$form, &$er
  *
  * @link https://docs.civicrm.org/dev/en/master/hooks/hook_civicrm_post/
  *
- * @param $op
- * @param $objectName
- * @param $objectId
- * @param $objectRef
  */
 function generic_civicrm_post($op, $objectName, $objectId, &$objectRef) {
   CRM_Generic_Campaign::post($op, $objectName, $objectId, $objectRef);
