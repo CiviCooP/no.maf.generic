@@ -89,7 +89,7 @@ class CRM_Generic_Export {
             try {
               $kid = civicrm_api3('Kid', 'generate', array(
                 'campaign_id' => $session->mafKidCampaign,
-                'contact_id' => $dao->id,
+                'contact_id' => $dao->civicrm_primary_id,
               ));
               $kidNumber = $kid['kid_number'];
             } catch (CiviCRM_API3_Exception $ex) {
