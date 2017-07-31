@@ -2,6 +2,32 @@
 
 require_once 'generic.civix.php';
 
+/**
+ * Implements hook_civicrm_validateForm().
+ *
+ *@link https://docs.civicrm.org/dev/en/master/hooks/hook_civicrm_validateForm/
+ */
+function generic_civicrm_validateForm($formName, &$fields, &$files, &$form, &$errors) {
+  switch ($formName) {
+    case "CRM_Contact_Form_Contact":
+      CRM_Generic_Contact::validateForm($formName, $fields, $form, $errors);
+      break;
+    case "CRM_Contact_Form_Inline_ContactInfo":
+      CRM_Generic_Contact::validateForm($formName, $fields, $form, $errors);
+      break;
+  }
+}
+
+/**
+ * Implements hook_civicrm_post().
+ *
+ * @link https://docs.civicrm.org/dev/en/master/hooks/hook_civicrm_post/
+ *
+ * @param $op
+ * @param $objectName
+ * @param $objectId
+ * @param $objectRef
+ */
 function generic_civicrm_post($op, $objectName, $objectId, &$objectRef) {
   CRM_Generic_Campaign::post($op, $objectName, $objectId, $objectRef);
 }
