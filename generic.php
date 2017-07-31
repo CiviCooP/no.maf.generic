@@ -23,9 +23,10 @@ function generic_civicrm_export(&$exportTempTable, &$headerRows, &$sqlColumns, &
 }
 
 /**
- * @param $formName
- * @param $form
- */
+ * Implements hook_civicrm_buildForm().
+ *
+ * @link https://docs.civicrm.org/dev/en/master/hooks/hook_civicrm_buildForm/
+\ */
 function generic_civicrm_buildForm ($formName, &$form) {
   if ($formName == 'CRM_Export_Form_Select') {
     CRM_Generic_Export::buildForm($formName, $form);
