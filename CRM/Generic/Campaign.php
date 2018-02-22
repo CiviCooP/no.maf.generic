@@ -2,7 +2,7 @@
 
 /**
  * Class for Campaign processing
- * Initially: populate and keep updated option group maf_partners_campaign with active campaigns
+ * Initially: populate and keep updated option group maf_printed_giro_campaign with active campaigns
  *
  * @author Erik Hommel (CiviCooP) <erik.hommel@civicoop.org>
  * @date 7 Feb 2017
@@ -16,7 +16,7 @@ class CRM_Generic_Campaign {
    * CRM_Generic_Campaign constructor.
    */
   public function __construct() {
-    $this->_optionGroupName = 'maf_partners_campaign';
+    $this->_optionGroupName = 'maf_printed_giro_campaign';
   }
 
   /**

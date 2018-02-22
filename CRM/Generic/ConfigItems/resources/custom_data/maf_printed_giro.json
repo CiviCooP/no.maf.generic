@@ -1,17 +1,17 @@
 {
-  "maf_partners_non_avtale":{
-    "name":"maf_partners_non_avtale",
-    "title":"MAF Partners Printed Giro",
+  "maf_printed_giro":{
+    "name":"maf_printed_giro",
+    "title":"Printed Giro",
     "extends":"Contact",
     "style":"Tab with table",
     "is_multiple":1,
     "is_active":1,
     "is_reserved":1,
     "collapse_display":0,
-    "table_name":"civicrm_value_maf_partners_non_avtale",
+    "table_name":"civicrm_value_printed_giro",
     "fields": {
-      "maf_partners_start_date": {
-        "name": "maf_partners_start_date",
+      "maf_printed_grio_start_date": {
+        "name": "maf_printed_giro_start_date",
         "label": "Start Date",
         "data_type": "Date",
         "html_type": "Select Date",
@@ -21,54 +21,54 @@
         "end_date_years":1,
         "date_format":"dd-mm-yy",
         "is_view": 0,
-        "column_name": "maf_partners_start_date",
+        "column_name": "maf_printed_giro_start_date",
         "weight": -90,
         "is_active": 1,
         "in_selector":1
       },
-      "maf_partners_campaign": {
-        "name": "maf_partners_campaign",
+      "maf_printed_giro_campaign": {
+        "name": "maf_printed_giro_campaign",
         "label": "Campaign",
-        "option_group": "maf_partners_campaign",
+        "option_group": "maf_printed_giro_campaign",
         "data_type": "String",
         "html_type": "Autocomplete-Select",
         "is_searchable": 1,
         "is_view": 0,
         "is_required":1,
-        "column_name": "maf_partners_campaign",
+        "column_name": "maf_printed_giro_campaign",
         "weight": -80,
         "is_active": 1,
         "in_selector":1
       },
-      "maf_partners_amount": {
-        "name": "maf_partners_amount",
+      "maf_printed_giro_amount": {
+        "name": "maf_printed_giro_amount",
         "label": "Amount in NOK",
         "data_type": "Money",
         "html_type": "Text",
         "is_searchable": 1,
         "is_view": 0,
         "is_required":1,
-        "column_name": "maf_partners_amount",
+        "column_name": "maf_printed_giro_amount",
         "weight": -70,
         "is_active": 1,
         "in_selector":1
       },
-      "maf_partners_frequency": {
-        "name": "maf_partners_frequency",
+      "maf_printed_giro_frequency": {
+        "name": "maf_printed_giro_frequency",
         "label": "Frequency",
-        "option_group": "maf_partners_frequency",
+        "option_group": "maf_printed_giro_frequency",
         "data_type": "String",
         "html_type": "Select",
         "is_searchable": 1,
         "is_view": 0,
         "is_required":1,
-        "column_name": "maf_partners_frequency",
+        "column_name": "maf_printed_giro_frequency",
         "weight": -60,
         "is_active": 1,
         "in_selector":1
       },
-      "maf_partners_end_date": {
-        "name": "maf_partners_end_date",
+      "maf_printed_giro_end_date": {
+        "name": "maf_printed_giro_end_date",
         "label": "End Date",
         "data_type": "Date",
         "html_type": "Select Date",
@@ -78,20 +78,20 @@
         "end_date_years":1,
         "date_format":"dd-mm-yy",
         "is_view": 0,
-        "column_name": "maf_partners_end_date",
+        "column_name": "maf_printed_giro_end_date",
         "weight": -50,
         "is_active": 1,
         "in_selector":1
       },
-      "maf_partners_scanned_contract": {
-        "name": "maf_partners_scanned_contract",
+      "maf_printed_giro_scanned_contract": {
+        "name": "maf_printed_giro_scanned_contract",
         "label": "Scanned contract",
         "data_type": "File",
         "html_type": "File",
         "is_searchable": 1,
         "is_view": 0,
         "is_required":0,
-        "column_name": "maf_partners_scanned_contract",
+        "column_name": "maf_printed_giro_scanned_contract",
         "weight": -40,
         "is_active": 1,
         "in_selector":1

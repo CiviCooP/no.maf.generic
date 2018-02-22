@@ -1,7 +1,7 @@
 {
-  "maf_partners_frequency":{
-    "name":"maf_partners_frequency",
-    "title":"MAF Norge Partners Frequency",
+  "maf_printed_giro_frequency":{
+    "name":"maf_printed_giro_frequency",
+    "title":"MAF Printed Giro Frequency",
     "is_active":1,
     "is_reserved":1,
     "option_values":{
@@ -28,9 +28,9 @@
       }
     }
   },
-  "maf_partners_campaign":{
-    "name":"maf_partners_campaign",
-    "title":"MAF Norge Partners Campaign",
+  "maf_printed_giro_campaign":{
+    "name":"maf_printed_giro_campaign",
+    "title":"MAF Norge Printed Giro Campaign",
     "is_active":1,
     "is_reserved":1
   }
