@@ -3,7 +3,7 @@
     "title": "Default Fundraising Campaign MAF Norge",
     "name": "maf_default_fundraising_campaign",
     "description": "Used as a default fundraising campaign in migration and wherever a campaign can not be found",
-    "campaign_type_id":1,
+    "campaign_type_id":10,
     "status_id": 2,
     "is_active":1
   }
