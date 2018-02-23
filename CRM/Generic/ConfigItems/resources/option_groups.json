@@ -33,5 +33,20 @@
     "title":"MAF Norge Printed Giro Campaign",
     "is_active":1,
     "is_reserved":1
+  },
+  "campaign_type":{
+    "name":"campaign_type",
+    "title":"Campaign type",
+    "is_active":1,
+    "is_reserved":1,
+    "option_values":{
+      "fundraising_campaign":{
+        "name":"fundraising_campaign",
+        "value":"10",
+        "label":"Fundraising Campaign",
+        "is_active":1,
+        "is_reserved":1
+      }
+    }
   }
 }
