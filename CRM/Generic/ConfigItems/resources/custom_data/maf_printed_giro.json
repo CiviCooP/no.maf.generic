@@ -10,7 +10,7 @@
     "collapse_display":0,
     "table_name":"civicrm_value_printed_giro",
     "fields": {
-      "maf_printed_grio_start_date": {
+      "maf_printed_giro_start_date": {
         "name": "maf_printed_giro_start_date",
         "label": "Start Date",
         "data_type": "Date",
