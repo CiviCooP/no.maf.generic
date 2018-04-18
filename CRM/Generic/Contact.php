@@ -33,9 +33,7 @@ class CRM_Generic_Contact {
   public static function searchTasks($objectName, &$tasks) {
     $tasks[] = array(
       'title' => 'Export contacts with KID',
-      'class' => 'CRM_Export_Form_Select', 'CRM_Export_Form_Map',
+      'class' => 'CRM_Generic_Export', 'CRM_Export_Form_Map',
     );
-    $session = CRM_Core_Session::singleton();
-    $session->mafExportWithKidTask = max(array_keys($tasks));
   }
 }

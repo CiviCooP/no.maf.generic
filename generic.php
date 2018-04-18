@@ -23,17 +23,6 @@ function generic_civicrm_export(&$exportTempTable, &$headerRows, &$sqlColumns, &
 }
 
 /**
- * Implements hook_civicrm_buildForm().
- *
- * @link https://docs.civicrm.org/dev/en/master/hooks/hook_civicrm_buildForm/
-\ */
-function generic_civicrm_buildForm ($formName, &$form) {
-  if ($formName == 'CRM_Export_Form_Select') {
-    CRM_Generic_Export::buildForm($formName, $form);
-  }
-}
-
-/**
  * Implements hook_civicrm_validateForm().
  *
  *@link https://docs.civicrm.org/dev/en/master/hooks/hook_civicrm_validateForm/
@@ -45,9 +34,6 @@ function generic_civicrm_validateForm($formName, &$fields, &$files, &$form, &$er
       break;
     case "CRM_Contact_Form_Inline_ContactInfo":
       CRM_Generic_Contact::validateForm($formName, $fields, $form, $errors);
-      break;
-    case "CRM_Export_Form_Select":
-      CRM_Generic_Export::validateForm($formName, $fields, $form, $errors);
       break;
   }
 }
