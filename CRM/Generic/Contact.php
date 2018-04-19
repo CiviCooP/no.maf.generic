@@ -24,16 +24,4 @@ class CRM_Generic_Contact {
     }
     return;
   }
-
-  /**
-   * Method to process civicrm_hook_searchTasks
-   * @param $objectName
-   * @param $tasks
-   */
-  public static function searchTasks($objectName, &$tasks) {
-    $tasks[] = array(
-      'title' => 'Export contacts with KID',
-      'class' => 'CRM_Generic_Export', 'CRM_Export_Form_Map',
-    );
-  }
 }

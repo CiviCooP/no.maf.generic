@@ -3,26 +3,6 @@
 require_once 'generic.civix.php';
 
 /**
- * Implements hook_civicrm_searchTasks().
- *
- *@link https://docs.civicrm.org/dev/en/master/hooks/hook_civicrm_searchTasks/
- */
-function generic_civicrm_searchTasks($objectName, &$tasks) {
-  if ($objectName == 'contact') {
-    CRM_Generic_Contact::searchTasks($objectName, $tasks);
-  }
-}
-
-/**
- * Implements hook_civicrm_export().
- *
- *@link https://docs.civicrm.org/dev/en/master/hooks/hook_civicrm_export/
- */
-function generic_civicrm_export(&$exportTempTable, &$headerRows, &$sqlColumns, &$exportMode) {
-  CRM_Generic_Export::export($exportTempTable, $headerRows, $sqlColumns, $exportMode);
-}
-
-/**
  * Implements hook_civicrm_validateForm().
  *
  *@link https://docs.civicrm.org/dev/en/master/hooks/hook_civicrm_validateForm/
