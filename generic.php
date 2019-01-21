@@ -27,6 +27,45 @@ function generic_civicrm_validateForm($formName, &$fields, &$files, &$form, &$er
 function generic_civicrm_post($op, $objectName, $objectId, &$objectRef) {
   CRM_Generic_Campaign::post($op, $objectName, $objectId, $objectRef);
 }
+
+/**
+ * Implements hook_civicrm_sumfields_definitions().
+ *
+ * This hook is provided by the summary fields extension.
+ * We change the trigger for the deductible amount fields because
+ * that trigger calculates the total amount of all contributions with a financial type set to
+ * deductible = 1.
+ * We change it that we calculate the total amount minus the non deductible amount on the contribution.
+ *
+ * @param $custom
+ */
+function generic_civicrm_sumfields_definitions(&$custom) {
+  $custom['fields']['contribution_total_deductible_this_year']['trigger_sql'] = '
+    (SELECT (COALESCE(SUM(total_amount),0) - COALESCE(SUM(non_deductible_amount),0))
+      FROM civicrm_contribution t1 JOIN civicrm_financial_type t2 ON
+      t1.financial_type_id = t2.id
+      WHERE CAST(receive_date AS DATE) BETWEEN "%current_fiscal_year_begin" AND
+      "%current_fiscal_year_end" AND t1.contact_id = NEW.contact_id AND
+      t1.contribution_status_id = 1 AND t1.financial_type_id IN (%financial_type_ids))
+  ';
+  $custom['fields']['contribution_total_deductible_last_year']['trigger_sql'] = '
+    (SELECT (COALESCE(SUM(total_amount),0) - COALESCE(SUM(non_deductible_amount),0))
+      FROM civicrm_contribution t1 JOIN civicrm_financial_type t2 ON
+      t1.financial_type_id = t2.id
+      WHERE CAST(receive_date AS DATE) BETWEEN "%last_fiscal_year_begin" AND
+      "%last_fiscal_year_end" AND t1.contact_id = NEW.contact_id AND
+      t1.contribution_status_id = 1 AND t1.financial_type_id IN (%financial_type_ids)) 
+  ';
+  $custom['fields']['contribution_total_deductible_year_before_last_year']['trigger_sql'] = '
+    (SELECT (COALESCE(SUM(total_amount),0) - COALESCE(SUM(non_deductible_amount),0))
+      FROM civicrm_contribution t1 JOIN civicrm_financial_type t2 ON
+      t1.financial_type_id = t2.id
+      WHERE CAST(receive_date AS DATE) BETWEEN "%year_before_last_fiscal_year_begin" AND
+      "%year_before_last_fiscal_year_end" AND t1.contact_id = NEW.contact_id AND
+      t1.contribution_status_id = 1 AND t1.financial_type_id IN (%financial_type_ids))
+  ';
+}
+
 /**
  * Implements hook_civicrm_config().
  *
